@@ -19,7 +19,6 @@ public class UserController {
 
     private final List<user> users;
 
-    public UserController() {
         users = new ArrayList<>();
         user user1 = new user();
         user1.setId(1);
@@ -44,7 +43,6 @@ public class UserController {
     public ResponseEntity<List<user>> getAllUsers() {
         return ResponseEntity.ok(users);
     }
-
     @GetMapping("/user/{id}")
     @PreAuthorize("hasAuthority('ROLE_USER')")
     public ResponseEntity<user> getUserById(@PathVariable("id") int id) {
